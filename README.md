@@ -1,0 +1,1 @@
+This mediator fetches item and dispensing-unit data from eapts system and stores it in an sqlite database. It exposes the stored data to openmrs through different apis.
