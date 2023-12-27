@@ -7,6 +7,7 @@ const updateItems = async (req,res,next) => {
     const items = await externalApiService.getItems();
     await dbOperations.insertOrUpdateItems(items);
     eapts_sync_logger.info("Items updated successfully");
+    next();
   } catch (err) {
     eapts_sync_logger.error("Error updating items:", err);
     next(err);
@@ -18,6 +19,7 @@ const updateDu = async (req,res,next) => {
     const du = await externalApiService.getDispensingUnit();
     await dbOperations.insertDispensingUnit(du);
     eapts_sync_logger.info("Dispensing Unit updated successfully");
+    next();
   } catch (err) {
     eapts_sync_logger.error("Error updating dispensing unit:", err);
     next(err)
