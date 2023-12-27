@@ -7,11 +7,7 @@ require("dotenv").config();
 
 const app = express();
 
-app.use(
-  cors({
-    methods: ["GET"],
-  })
-);
+app.use(cors());
 
 ///add routes
 app.use("/du", require("./routes/duRoute"));
