@@ -13,6 +13,10 @@ app.use(
   })
 );
 
+///add routes
+app.use("/du", require("./routes/duRoute"));
+app.use("/item", require("./routes/itemRoute"));
+
 ///Create and start https server
 const keyPath = path.join(__dirname, "./cert/key.pem");
 const certPath = path.join(__dirname, "./cert/cert.pem");
