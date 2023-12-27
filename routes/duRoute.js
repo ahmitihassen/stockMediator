@@ -1,8 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/",(req,res) => {
-    res.send("du test route")
-})
+const duController = require("../controllers/duController");
+const dbSyncMiddleware = require("../middlewares/dbSyncMiddleware");
+
+router.use(dbSyncMiddleware);
+
+router.get("/", duController.getAllDu);
 
 module.exports = router;
