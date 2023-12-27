@@ -1,5 +1,5 @@
 const Item = require("../models/itemModel");
-
+const {updateItems} = require("../services/updateTableService");
 const getAllDuItems = async (req, res, next) => {
   const duName = req.params.duName;
   try {
@@ -32,4 +32,5 @@ const getDuItem = async (req, res, next) => {
 module.exports = {
   getAllDuItems,
   getDuItem,
+  updateItems,
 };
