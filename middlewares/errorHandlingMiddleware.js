@@ -1,4 +1,4 @@
-const api_logger = require("../services/logging/api_logger");
+const api_logger = require("../utils/api_logger");
 
 const errorHandlingMiddleware = (err, req, res, next) => {
   api_logger.error(
