@@ -1,4 +1,5 @@
 const DispensingUnit = require("../models/duModel");
+const {updateDu} = require("../services/updateTableService");
 
 const getAllDu = async (req, res, next) => {
   try {
@@ -11,4 +12,5 @@ const getAllDu = async (req, res, next) => {
 
 module.exports = {
   getAllDu,
+  updateDu,
 };
