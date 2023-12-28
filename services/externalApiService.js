@@ -9,7 +9,7 @@ const getDispensingUnit = async () => {
       username: process.env.APTS_USERNAME,
       password: process.env.APTS_PASSWORD,
     },
-    timeout: 5000, // Timeout of 2 seconds
+    timeout: 20000, // Timeout of 2 seconds
   };
   try {
     const du = await axios.get(duURL, options);
@@ -32,7 +32,7 @@ const getItems = async () => {
           username: process.env.APTS_USERNAME,
           password: process.env.APTS_PASSWORD,
         },
-        timeout: 5000, // Timeout of 2 seconds
+        timeout: 20000, // Timeout of 2 seconds
       };
       try {
         const items = await axios.get(itemStockUrl, options);
