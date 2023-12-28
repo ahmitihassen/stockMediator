@@ -4,10 +4,10 @@ const axios = require("axios");
 const formatDuResponse = (response) => {
   let formattedDu = [];
   for (du in response) {
-    formattedDu = {
+    formattedDu.push({
       institutionName: response[du].institutionName,
       rowGuid: response[du].rowguid,
-    };
+    });
   }
   return formattedDu;
 };
@@ -15,12 +15,12 @@ const formatDuResponse = (response) => {
 const formatItemResponse = (response) => {
   let formattedItem = [];
   for (item in response) {
-    formattedItem = {
+    formattedItem.push({
       itemUnit: response[item].itemUnit,
       institution: response[item].institution,
       hasStock: response[item].hasStock,
       quantity: response[item].quantity,
-    };
+    });
   }
   return formattedItem;
 };
