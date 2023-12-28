@@ -67,7 +67,7 @@ const insertDispensingUnit = async (data) => {
             `Dispensing Unit ${duData.institutionName} already exists`
           );
       } catch (err) {
-        eapts_sync_logger.err(
+        eapts_sync_logger.error(
           `Error processing Dispensing Unit ${duData.institutionName},`,
           err
         );
