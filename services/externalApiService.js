@@ -7,7 +7,7 @@ const formatDuResponse = (response) => {
       institutionName: response[du].institutionName,
       rowGuid: response[du].rowguid,
     };
-    return formattedDu;
+    return [formattedDu];
   }
 };
 
@@ -19,7 +19,7 @@ const formatItemResponse = (response) => {
       hasStock: response[item].hasStock,
       quantity: response[item].quantity,
     };
-    return formattedItem;
+    return [formattedItem];
   }
 };
 ///get dispensing unit from eapts
