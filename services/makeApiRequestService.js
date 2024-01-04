@@ -16,7 +16,7 @@ const makeApiRequest = async () => {
         eapts_sync_logger.error("Error updating items:", err);
     }
     try {
-        const response = await instance.post("https://localhost:1338/dispensing-unit",{timeout:5000});
+        const response = await instance.post("https://localhost:1338/du",{timeout:5000});
         eapts_sync_logger.info("Dispensing units updated successfully",response);
     } catch (err) {
         eapts_sync_logger.error("Error updating dispensing units:", err);
