@@ -3,7 +3,7 @@ const axios = require("axios");
 
 const formatDuResponse = (response) => {
   let formattedDu = [];
-  for (du in response) {
+  for (let du in response) {
     formattedDu.push({
       institutionName: response[du].institutionName,
       rowGuid: response[du].rowguid,
@@ -14,7 +14,7 @@ const formatDuResponse = (response) => {
 
 const formatItemResponse = (response) => {
   let formattedItem = [];
-  for (item in response) {
+  for (let item in response) {
     formattedItem.push({
       itemUnit: response[item].itemUnit,
       institution: response[item].institution,
@@ -49,7 +49,7 @@ const getItems = async () => {
   try {
     let items = [];
     const du = await getDispensingUnit();
-    for (item in du) {
+    for (let item in du) {
       const itemStockUrl = process.env.STOCK_URL + `=${du[item]?.rowguid}`;
       const options = {
         auth: {
