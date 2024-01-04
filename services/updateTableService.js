@@ -2,7 +2,7 @@ const dbOperations = require("../db/dbOperations");
 const externalApiService = require("../services/externalApiService");
 const eapts_sync_logger = require("../utils/eapts_sync_logger");
 
-const updateItems = async (req,res,next) => {
+const updateItems = async (req, res, next) => {
   try {
     const items = await externalApiService.getItems();
     await dbOperations.insertOrUpdateItems(items);
@@ -15,7 +15,7 @@ const updateItems = async (req,res,next) => {
   }
 };
 
-const updateDu = async (req,res,next) => {
+const updateDu = async (req, res, next) => {
   try {
     const du = await externalApiService.getDispensingUnit();
     await dbOperations.insertDispensingUnit(du);
@@ -24,7 +24,7 @@ const updateDu = async (req,res,next) => {
     next();
   } catch (err) {
     eapts_sync_logger.error("Error updating dispensing unit:", err);
-    next(err)
+    next(err);
   }
 };
 
