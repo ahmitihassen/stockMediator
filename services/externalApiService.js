@@ -48,9 +48,9 @@ const getDispensingUnit = async () => {
 const getItems = async () => {
   try {
     let items = [];
-    const { model } = await getDispensingUnit();
-    for (rowGuid in model) {
-      const itemStockUrl = process.env.STOCK_URL + `=${rowGuid}`;
+    const model = await getDispensingUnit();
+    for (item in model) {
+      const itemStockUrl = process.env.STOCK_URL + `=${model[item]?.rowguid}`;
       const options = {
         auth: {
           username: process.env.APTS_USERNAME,
@@ -59,14 +59,15 @@ const getItems = async () => {
         timeout: 90000, // Timeout of 90 seconds
       };
       try {
-        items.push(await axios.get(itemStockUrl, options));
+        const response = await axios.get(itemStockUrl, options);
+        items.push(...response?.data?.model);
         eapts_sync_logger.info(items);
       } catch (err) {
         eapts_sync_logger.error(err);
         throw err;
       }
     }
-    return formatItemResponse(items?.data?.model);
+    return formatItemResponse(items);
   } catch (err) {
     eapts_sync_logger.error(err);
     throw err;
