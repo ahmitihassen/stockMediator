@@ -48,9 +48,9 @@ const getDispensingUnit = async () => {
 const getItems = async () => {
   try {
     let items = [];
-    const model = await getDispensingUnit();
-    for (item in model) {
-      const itemStockUrl = process.env.STOCK_URL + `=${model[item]?.rowguid}`;
+    const du = await getDispensingUnit();
+    for (item in du) {
+      const itemStockUrl = process.env.STOCK_URL + `=${du[item]?.rowguid}`;
       const options = {
         auth: {
           username: process.env.APTS_USERNAME,
