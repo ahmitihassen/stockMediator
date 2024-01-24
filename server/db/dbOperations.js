@@ -15,7 +15,7 @@ const insertOrUpdateItems = async (data) => {
         });
 
         if (!created) {
-          if (item.changed("quantity") || item.changed("hasStock")) {
+          if (item.quantity != itemData.quantity) {
             await Item.update(
               { hasStock: itemData.hasStock, quantity: itemData.quantity },
               {
