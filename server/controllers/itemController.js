@@ -1,11 +1,11 @@
 const Item = require("../models/itemModel");
-const {updateItems} = require("../services/updateTableService");
+const { updateItems } = require("../services/updateTableService");
 const getDuName = async (id) => {
   const du = await DispensingUnit.findAll({
-    where: {rowGuid:id}
-  })
-  return du[0].institutionName
-}
+    where: { rowGuid: id },
+  });
+  return du[0].institutionName;
+};
 const getAllDuItems = async (req, res, next) => {
   const duName = await getDuName(req.params.duName);
   try {

@@ -9,7 +9,7 @@ const loggerMiddleware = require("../middlewares/loggerMiddleware");
 router.use(dbSyncMiddleware);
 
 router.get("/", duController.getAllDu, loggerMiddleware);
-router.post("/",duController.updateDu, loggerMiddleware)
+router.post("/", duController.updateDu, loggerMiddleware);
 
 router.use(errorHandlingMiddleware);
 module.exports = router;

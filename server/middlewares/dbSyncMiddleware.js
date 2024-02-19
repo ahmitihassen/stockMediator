@@ -1,6 +1,6 @@
 const sequelize = require("../db/database");
 
-const syncDB = async (req,res,next) => {
+const syncDB = async (req, res, next) => {
   try {
     await sequelize.sync();
     console.log("Database synced");
